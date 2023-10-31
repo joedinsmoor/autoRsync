@@ -3,19 +3,19 @@ from src.autoRsync import *
 
 id = platform.uname()
 
-if id[0] == 'nt':
+if platform.system() == 'Windows':
     windows()
-elif id[0] =='Darwin':
+elif platform.system() =='Darwin':
     if id[5] == 'x86_64':
         macos_intel()
     else:
         macos_x86()
-elif id[0] == 'linux':
+elif platform.system() == 'linux':
     if id[5] == 'x86_64':
         linux_x86()
     else:
         linux_arm()
-elif id[0] == 'freebsd':
+elif platform.system() == 'freebsd':
     freebsd()
 
 else:
