@@ -1,6 +1,6 @@
 import platform
 import os
-#import celery
+from celery import Celery
 from src.autoRsync import autoRsync
 
 id = platform.uname()
@@ -8,6 +8,7 @@ id = platform.uname()
 
 source = input("Enter Source Directory: ")
 dest = input("Enter Destination Directory: ")
+
 
 if platform.system() == 'Windows':
     autoRsync.windows(source, dest)
