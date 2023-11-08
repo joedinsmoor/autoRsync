@@ -1,6 +1,6 @@
 import platform
 import os
-import celery
+#import celery
 from src.autoRsync import *
 
 id = platform.uname()
