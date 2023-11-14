@@ -1,5 +1,5 @@
 import pytest
-from src import *
+from . import *
 
 
 @pytest.fixture(scope="module")
