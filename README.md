@@ -18,7 +18,6 @@ Testing:
 
 Upcoming (in no particular order):
 
-- Multithreaded transfers with Celery
 - Automated syncing with cron
 - Progress bar, general user friendliness
 - SSH Support
