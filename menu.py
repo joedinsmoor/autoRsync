@@ -13,7 +13,7 @@ dest = input("Enter Destination Directory: ")
 if platform.system() == 'Windows':
     autoRsync.windows(source, dest)
 elif platform.system() =='Darwin':
-    if id[5] == 'x86_64':
+    if id[5] == 'i386':
         autoRsync.macos_x86(source, dest)
     else:
         autoRsync.macos_arm(source, dest)
