@@ -6,7 +6,6 @@ import threading
 
 
 
-
 source = input("Enter Source Directory: ")
 dest = input("Enter Destination Directory: ")
 
@@ -27,10 +26,19 @@ if(mtf):
         if(os.path.isdir(tempsource)): # RECURSIVE BULLSHIT IS GREAT and DOESN'T WORK
             tempfiles = os.listdir(tempsource)
             for tempfile in tempfiles:
-                temptemp = tempsource + tempfile
-                tt = threading.Thread(target=autoRsync.find_os(temptemp, dest))
+                temptemp = tempsource + "/" + tempfile
+                try:
+                    tt = threading.Thread(target=autoRsync.find_os(temptemp, dest))
+                except:
+                    pass
         print(tempsource)
         t = threading.Thread(target=autoRsync.find_os(tempsource, dest))
+    if(os.listdir(source) != os.listdir(dest)):
+        print("Some files skipped:\n")
+        for file in files:
+            if file not in dest:
+                print(file)
+            
 
 else:
 
