@@ -24,6 +24,11 @@ if(mtf):
     for file in files: #create a thread for each file in directory, call correct autoRsync member function and run in parallel
         tempsource = source + file
         if(os.path.isdir(tempsource)): # RECURSIVE BULLSHIT IS GREAT and DOESN'T WORK
+            if not os.path.isdir(dest + "/" + tempsource):
+                try:
+                    os.makedirs(dest + "/" + tempsource)
+                except OSError:
+                    print(f"Directory {dest + tempsource} exists")
             tempfiles = os.listdir(tempsource)
             for tempfile in tempfiles:
                 temptemp = tempsource + "/" + tempfile
