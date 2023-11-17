@@ -21,7 +21,7 @@ class autoRsync:
                 autoRsync.macos_x86(source, dest)
             else:
                 autoRsync.macos_arm(source, dest)
-        elif platform.system() == 'linux':
+        elif platform.system() == 'linux' or 'Linux':
             if id[5] == 'x86_64':
                 autoRsync.linux_x86(source, dest)
             else:
