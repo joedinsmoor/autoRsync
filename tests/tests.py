@@ -1,6 +1,6 @@
 import pytest
 import os
-from .src import autoRsync
+from ..src import autoRsync
 
 
 @pytest.fixture(scope="module")
