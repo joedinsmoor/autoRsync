@@ -12,7 +12,7 @@ def platform_test():
 #
 
 def test_test(platform_test):
-    testpathA = '/testA'
-    testpathB = '/testB'
+    testpathA = '/testA/'
+    testpathB = '/testB/'
     platform_test()
     assert(os.listdir(testpathA) == os.listdir(testpathB))
