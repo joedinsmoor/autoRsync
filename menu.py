@@ -3,11 +3,40 @@ import os
 from celery import Celery
 from src.autoRsync import autoRsync
 import threading
+import sys
 
 
+args = sys.argv
+n = len(sys.argv)
+source = ''
+dest = ''
 
-source = input("Enter Source Directory: ")
-dest = input("Enter Destination Directory: ")
+print("         - - - - Welcome to autoRsync v1.0 - - - -")
+print("        I wrote this for my own use, primarily for")
+print("automated backups of my personal machines and devices to a local")
+print("server, and automated backups from there to S3 and Google Drive")
+
+
+print("\n\nautoRsync is free to use, modify, and distribute as you see fit, as long as")
+print("the GNU GPL 3 license is abided by. It can be viewed by opening the LICENSE file in the master directory\n\n")
+
+print("If you need help, please run autoRsync with the -h flag, like this: 'python3 menu.py -h'")
+
+if(args.__contains__("-s")):
+    i = args.index("-s")
+    source = args[i + 1]
+
+if(args.__contains__("-d")):
+    j = args.index("-d")
+    dest = args[j + 1]
+
+if source == '':
+    source = input("Enter Source Directory: ")
+if dest == '':
+    dest = input("Enter Destination Directory: ")
+
+mtf = 0
+
 
 
 if not (os.path.isdir(dest)):
