@@ -4,18 +4,23 @@ import boto3
 from ..src import autoRsync
 
 
-os.environ["AWS_DEFAULT_REGION"] = 'us-east-2'
-os.environ["AWS_ACCESS_KEY_ID"] = $S3_TOKEN
-os.environ["AWS_SECRET_ACCESS_KEY"] = $S3_KEY
 
 
 @pytest.fixture(scope="module")
 def platform_test():
+
+    S3_TOKEN_ID='AWS_ACCESS_KEY_ID'
+    S3_ACCESS_KEY='AWS_SECRET_ACCESS_KEY'
+    
+
+    ENV_VARS = (S3_TOKEN_ID, S3_ACCESS_KEY)
+    NO_ENV_VARS = ' '.join(ENV_VARS)+' not in environment'
+
     s3 = boto3.reosurce(
         service_name = 's3',
         region_name='us-east-2',
-        aws_access_key_id=AWS_ACCESS_KEY_ID,
-        aws_secret_access_key=AWS_SECRET_ACCESS_KEY
+        aws_access_key_id=S3_TOKEN_ID,
+        aws_secret_access_key=S3_ACCESS_KEY
     )
 
     autoRsync.autoRsync.find_os('/testA/', '/testB/')

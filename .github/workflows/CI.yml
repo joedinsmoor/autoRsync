@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest']
-        python-version: [3.9]
+        python-version: [3.9, 3.10, 3.11]
     runs-on: ${{ matrix.os }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -45,6 +45,9 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
          # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
+        env:
+          S3_TOKEN_ID: ${{ secrets.S3_TOKEN}}
+          S3_ACCESS_KEY: ${{ secrets.S3_KEY}}
         run: |
           pytest tests/tests.py
 

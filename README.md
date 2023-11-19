@@ -6,6 +6,12 @@ Requirements:
 - Currently requires volumes to be mounted to system that autoRsync is being run on, ssh capability soon
 - ```requirements.txt``` needs to be installed before use
 
+Supported OS's:
+- Linux (x86 and ARM)
+- MacOS (x86 and ARM)
+- Windows (x86 only)
+- FreeBSD
+
 Installation: 
 - ```pip3 install -r requirements.txt```
 - ```python3 menu.py```
