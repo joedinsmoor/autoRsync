@@ -6,7 +6,7 @@ from ..src import autoRsync
 
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture()
 def platform_test():
 
     S3_TOKEN_ID='AWS_ACCESS_KEY_ID'
@@ -26,10 +26,7 @@ def platform_test():
     autoRsync.autoRsync.find_os(source='testA/', dest='testB/')
 
 
-#Connect to 2 S3 Instances, using $S3_TOKEN and $S3_TOKEN2 and perform tests with their respective OS's
-#Transmit ~1 GB between the two and then back.
-#
-
+#Connect to remote S3 container, transmit file from one folder to another, then transmit locally and back
 def test_test(platform_test):
     testpathA = 'testA/'
     testpathB = 'testB/'
