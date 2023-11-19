@@ -7,7 +7,7 @@ from ..src import autoRsync
 
 
 @pytest.fixture(scope="module")
-def platform_test():
+def platform_test(source, dest):
 
     S3_TOKEN_ID='AWS_ACCESS_KEY_ID'
     S3_ACCESS_KEY='AWS_SECRET_ACCESS_KEY'
@@ -23,7 +23,7 @@ def platform_test():
         aws_secret_access_key=S3_ACCESS_KEY
     )
 
-    autoRsync.autoRsync.find_os('testA/', 'testB/')
+    autoRsync.autoRsync.find_os(source=source, dest=dest)
 
 
 #Connect to 2 S3 Instances, using $S3_TOKEN and $S3_TOKEN2 and perform tests with their respective OS's
@@ -31,7 +31,7 @@ def platform_test():
 #
 
 def test_test(platform_test):
-    testpathA = '/testA/'
-    testpathB = '/testB/'
-    platform_test()
+    testpathA = 'testA/'
+    testpathB = 'testB/'
+    platform_test(testpathA, testpathB)
     assert(os.listdir(testpathA) == os.listdir(testpathB))
