@@ -23,7 +23,7 @@ def platform_test():
         aws_secret_access_key=S3_ACCESS_KEY
     )
 
-    autoRsync.autoRsync.find_os('/testA/', '/testB/')
+    autoRsync.autoRsync.find_os('testA/', 'testB/')
 
 
 #Connect to 2 S3 Instances, using $S3_TOKEN and $S3_TOKEN2 and perform tests with their respective OS's
