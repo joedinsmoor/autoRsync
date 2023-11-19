@@ -20,7 +20,11 @@ print("server, and automated backups from there to S3 and Google Drive")
 print("\n\nautoRsync is free to use, modify, and distribute as you see fit, as long as")
 print("the GNU GPL 3 license is abided by. It can be viewed by opening the LICENSE file in the master directory\n\n")
 
-print("If you need help, please run autoRsync with the -h flag, like this: 'python3 menu.py -h'")
+
+if not (args.__contains__('-h')):
+    print("If you need help, please run autoRsync with the -h flag, like this: 'python3 menu.py -h'")
+else:
+    print("        - - - - Help Menu - - - -       \n")
 
 if(args.__contains__("-s")):
     i = args.index("-s")
@@ -29,6 +33,12 @@ if(args.__contains__("-s")):
 if(args.__contains__("-d")):
     j = args.index("-d")
     dest = args[j + 1]
+
+
+if(args.__contains__("-h")):
+    help = "-s  : specifies source directory/file\n-d  : specifies destination directory\n-h  : prints this help dialog\n"
+    print(help)
+    exit()
 
 if source == '':
     source = input("Enter Source Directory: ")

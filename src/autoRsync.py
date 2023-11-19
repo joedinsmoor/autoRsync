@@ -16,7 +16,7 @@ class autoRsync:
 
         if platform.system() == 'Windows':
             autoRsync.windows(source, dest)
-        elif platform.system() =='Darwin':
+        elif platform.system() =='Darwin' or 'darwin':
             if id[5] == 'i386':
                 autoRsync.macos_x86(source, dest)
             else:
