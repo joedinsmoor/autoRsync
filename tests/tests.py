@@ -33,5 +33,5 @@ def platform_test(source, dest):
 def test_test(platform_test):
     testpathA = 'testA/'
     testpathB = 'testB/'
-    platform_test(testpathA, testpathB)
+    platform_test(source = testpathA, dest = testpathB)
     assert(os.listdir(testpathA) == os.listdir(testpathB))
