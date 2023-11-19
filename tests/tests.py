@@ -16,7 +16,7 @@ def platform_test():
     ENV_VARS = (S3_TOKEN_ID, S3_ACCESS_KEY)
     NO_ENV_VARS = ' '.join(ENV_VARS)+' not in environment'
 
-    s3 = boto3.reosurce(
+    s3 = boto3.resource(
         service_name = 's3',
         region_name='us-east-2',
         aws_access_key_id=S3_TOKEN_ID,
