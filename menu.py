@@ -2,6 +2,7 @@
 import os
 from celery import Celery
 from src.autoRsync import autoRsync
+from src.folders import foldersync
 import threading
 import sys
 
@@ -61,20 +62,9 @@ if source.endswith("/"):
 
 if(mtf):
     for file in files: #create a thread for each file in directory, call correct autoRsync member function and run in parallel
-        tempsource = source + file
-        if(os.path.isdir(tempsource)): # RECURSIVE BULLSHIT IS GREAT and DOESN'T WORK
-            if not os.path.isdir(dest + "/" + tempsource):
-                try:
-                    os.makedirs(dest + "/" + tempsource)
-                except OSError:
-                    print(f"Directory {dest + tempsource} exists")
-            tempfiles = os.listdir(tempsource)
-            for tempfile in tempfiles:
-                temptemp = tempsource + "/" + tempfile
-                try:
-                    tt = threading.Thread(target=autoRsync.find_os(temptemp, dest))
-                except:
-                    pass
+        tempsource = source + '/' + file #changes source dir to subfolder temporarily
+        if(os.path.isdir(tempsource)): # Recursion may have to happen here for subsubfolders
+            foldersync.cascading(tempsource, dest)
         print(tempsource)
         t = threading.Thread(target=autoRsync.find_os(tempsource, dest))
     if(os.listdir(source) != os.listdir(dest)):
