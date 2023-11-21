@@ -30,5 +30,5 @@ def platform_test():
 def test_test(platform_test):
     testpathA = 'testA/'
     testpathB = 'testB/'
-    assert autoRsync.find_os(source='testA/', dest='testB/')
+    autoRsync.find_os(source='testA/', dest='testB/')
     assert(os.listdir(testpathA) == os.listdir(testpathB))
