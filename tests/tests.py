@@ -23,12 +23,12 @@ def platform_test():
         aws_secret_access_key=S3_ACCESS_KEY
     )
 
-    autoRsync.autoRsync.find_os(source='testA/', dest='testB/')
+    autoRsync.find_os(source='testA/', dest='testB/')
 
 
 #Connect to remote S3 container, transmit file from one folder to another, then transmit locally and back
 def test_test(platform_test):
     testpathA = 'testA/'
     testpathB = 'testB/'
-    assert autoRsync.autoRsync.find_os(source='testA/', dest='testB/')
+    assert autoRsync.find_os(source='testA/', dest='testB/')
     assert(os.listdir(testpathA) == os.listdir(testpathB))
