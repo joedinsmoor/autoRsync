@@ -1,7 +1,7 @@
 import pytest
 import os
 import boto3
-from ..src import autoRsync
+from ..src.autoRsync import autoRsync
 
 
 
@@ -30,5 +30,5 @@ def platform_test():
 def test_test(platform_test):
     testpathA = 'testA/'
     testpathB = 'testB/'
-    assert platform_test()
+    assert autoRsync.autoRsync.find_os(source='testA/', dest='testB/')
     assert(os.listdir(testpathA) == os.listdir(testpathB))
