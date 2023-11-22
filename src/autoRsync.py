@@ -11,7 +11,7 @@ class autoRsync:
     directories are hosted on, and make the handshake with the correct method for the correct OS
     '''
 
-    def find_os(source, dest):
+    def find_os(source, dest): # type: ignore
         id = platform.uname()
 
         if platform.system() == 'Windows':
@@ -35,9 +35,9 @@ class autoRsync:
     when windows is detected, autoRsync will call sysrsync and copy
     a selected folder to a selected destination
     '''
-    def windows(source, dest):
+    def windows(source, dest): # type: ignore
         sysrsync.run(source=source, destination=dest)
-        fname = source.split("/")
+        fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
         if os.path.isfile(dest + fname[len(fname)-1]):
             print(f"Function succeeded, file located at: ", nName)
@@ -45,10 +45,10 @@ class autoRsync:
     when apple silicon based macos is detected, autoRsync will call sysrsync and copy
     a selected folder to a selected destination
     '''
-    def macos_arm(source, dest):
+    def macos_arm(source, dest): # type: ignore
         #print("Starting for macos_arm\n\n")
         sysrsync.run(source=source, destination=dest)
-        fname = source.split("/")
+        fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
         if os.path.isfile(dest + fname[len(fname)-1]):
             print(f"Function succeeded, file located at: ", nName)
@@ -58,16 +58,16 @@ class autoRsync:
     when linux is detected, autoRsync will call sysrsync and copy
     a selected folder to a selected destination
     '''
-    def linux_x86(source, dest):
+    def linux_x86(source, dest): # type: ignore
         sysrsync.run(source=source, destination=dest)
-        fname = source.split("/")
+        fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
         if os.path.isfile(dest + fname[len(fname)-1]):
             print(f"Function succeeded, file located at: ", nName)
 
-    def linux_arm(source, dest):
+    def linux_arm(source, dest): # type: ignore
         sysrsync.run(source=source, destination=dest)
-        fname = source.split("/")
+        fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
         if os.path.isfile(dest + fname[len(fname)-1]):
             print(f"Function succeeded, file located at: ", nName)
@@ -77,16 +77,16 @@ class autoRsync:
     when intel based macos is detected, autoRsync will call sysrsync and copy
     a selected folder to a selected destination
     '''
-    def macos_x86(source, dest):
+    def macos_x86(source, dest): # type: ignore
         sysrsync.run(source=source, destination=dest)
-        fname = source.split("/")
+        fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
         if os.path.isfile(dest + fname[len(fname)-1]):
             print(f"Function succeeded, file located at: ", nName)
 
-    def freebsd(source, dest):
+    def freebsd(source, dest): # type: ignore
         sysrsync.run(source=source, destination=dest)
-        fname = source.split("/")
+        fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
         if os.path.isfile(dest + fname[len(fname)-1]):
             print(f"Function succeeded, file located at: ", nName)

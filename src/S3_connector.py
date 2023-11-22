@@ -14,7 +14,7 @@ def get_secret():
     region_name = "us-east-2"
 
     # Create a Secrets Manager client
-    session = boto3.session.Session()
+    session = boto3.session.Session() # type: ignore
     client = session.client(
         service_name='secretsmanager',
         region_name=region_name
@@ -49,7 +49,7 @@ def get_secret():
             raise e
     # Decrypts secret using the associated KMS CMK.
     # Depending on whether the secret is a string or binary, one of these fields will be populated.
-    if 'SecretString' in get_secret_value_response:
-        return json.loads(get_secret_value_response['SecretString'])
+    if 'SecretString' in get_secret_value_response: # type: ignore
+        return json.loads(get_secret_value_response['SecretString']) # type: ignore
     else:
-        return base64.b64decode(get_secret_value_response['SecretBinary'])
+        return base64.b64decode(get_secret_value_response['SecretBinary']) # type: ignore

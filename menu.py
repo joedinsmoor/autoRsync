@@ -61,19 +61,19 @@ if source.endswith("/"):
 
 
 if(mtf):
-    for file in files: #create a thread for each file in directory, call correct autoRsync member function and run in parallel
+    for file in files: #create a thread for each file in directory, call correct autoRsync member function and run in parallel # type: ignore
         tempsource = source + '/' + file #changes source dir to subfolder temporarily
         if(os.path.isdir(tempsource)): # Recursion may have to happen here for subsubfolders
-            foldersync.cascading(tempsource, dest)
+            foldersync.cascading(tempsource, dest) # type: ignore
         print(tempsource)
         t = threading.Thread(target=autoRsync.find_os(tempsource, dest))
     if(os.listdir(source) != os.listdir(dest)):
         print("Some files skipped:\n")
-        for file in files:
+        for file in files: # type: ignore
             if file not in dest:
                 print(file)
             
 
 else:
 
-    autoRsync.find_os(source, dest)
+    autoRsync.find_os(source, dest) # type: ignore
