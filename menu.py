@@ -12,18 +12,18 @@ n = len(sys.argv)
 source = ''
 dest = ''
 
-print("         - - - - Welcome to autoRsync v1.0 - - - -")
-print("        I wrote this for my own use, primarily for")
-print("automated backups of my personal machines and devices to a local")
-print("server, and automated backups from there to S3 and Google Drive")
+print("         - - - - Welcome to autoRsync v1.0 - - - -", flush=True)
+print("        I wrote this for my own use, primarily for", flush=True)
+print("automated backups of my personal machines and devices to a local", flush=True)
+print("server, and automated backups from there to S3 and Google Drive", flush=True)
 
 
-print("\n\nautoRsync is free to use, modify, and distribute as you see fit, as long as")
-print("the GNU GPL 3 license is abided by. It can be viewed by opening the LICENSE file in the master directory\n\n")
+print("\n\nautoRsync is free to use, modify, and distribute as you see fit, as long as", flush=True)
+print("the GNU GPL 3 license is abided by. It can be viewed by opening the LICENSE file in the master directory\n\n", flush=True)
 
 
 if not (args.__contains__('-h')):
-    print("If you need help, please run autoRsync with the -h flag, like this: 'python3 menu.py -h'")
+    print("If you need help, please run autoRsync with the -h flag, like this: 'python3 menu.py -h'", flush=True)
 else:
     print("        - - - - Help Menu - - - -       \n")
 

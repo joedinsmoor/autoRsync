@@ -1,6 +1,6 @@
 import os
 import threading
-from autoRsync import autoRsync
+from src.autoRsync import autoRsync
 
 
 class foldersync:
