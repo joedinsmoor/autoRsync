@@ -13,7 +13,8 @@ class autoRsync:
 
     def find_os(source, dest): # type: ignore
         id = platform.uname()
-
+        if not os.path.isdir(dest):
+            os.makedirs(dest)
         if platform.system() == 'Windows':
             autoRsync.windows(source, dest)
         elif platform.system() =='Darwin' or 'darwin':
