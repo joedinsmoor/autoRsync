@@ -14,7 +14,7 @@ Supported OS's:
 
 Installation: 
 - ```pip3 install -r requirements.txt```
-- ```python3 menu.py```
+- ```python3 autoRsync.py```
 
 
 Testing:
