@@ -48,6 +48,8 @@ class autoRsync:
     '''
     def macos_arm(source, dest): # type: ignore
         #print("Starting for macos_arm\n\n")
+        if not os.path.isdir(dest):
+            os.mkdir(dest)
         sysrsync.run(source=source, destination=dest)
         fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
@@ -60,6 +62,8 @@ class autoRsync:
     a selected folder to a selected destination
     '''
     def linux_x86(source, dest): # type: ignore
+        if not os.path.isdir(dest):
+            os.mkdir(dest)
         sysrsync.run(source=source, destination=dest)
         fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
@@ -67,6 +71,8 @@ class autoRsync:
             print(f"Function succeeded, file located at: ", nName)
 
     def linux_arm(source, dest): # type: ignore
+        if not os.path.isdir(dest):
+            os.mkdir(dest)
         sysrsync.run(source=source, destination=dest)
         fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
@@ -79,6 +85,8 @@ class autoRsync:
     a selected folder to a selected destination
     '''
     def macos_x86(source, dest): # type: ignore
+        if not os.path.isdir(dest):
+            os.mkdir(dest)
         sysrsync.run(source=source, destination=dest)
         fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
@@ -86,6 +94,8 @@ class autoRsync:
             print(f"Function succeeded, file located at: ", nName)
 
     def freebsd(source, dest): # type: ignore
+        if not os.path.isdir(dest):
+            os.mkdir(dest)
         sysrsync.run(source=source, destination=dest)
         fname = source.split("/") # type: ignore
         nName = dest + fname[len(fname)-1]
